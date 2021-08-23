@@ -5,9 +5,10 @@
 extern "C" {
 #endif
 
-/*******************
- * UNIVERSE HEADER UI
- * *****************/
+/*****************
+ * glui OpenGL GUI
+ * **************/
+
 
 #include <gleex.h>
 #include <photon.h>
