@@ -13,7 +13,7 @@ void wxFrameUpdate(wxFrame* f, vec2 mouse, bool pressed)
 {
     texture_t t = tFrame;
     Rect r = {f->position.x, f->position.y, (float)t.width * f->scale, (float)t.height * f->scale};
-    if (!rect_point_overlap(mouse, r)) {
+    if (!rect_point_overlap(r, mouse)) {
         f->state = WIDGET_UNSELECTED;
         return;
     }

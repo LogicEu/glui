@@ -15,7 +15,7 @@ wxField wxFieldCreate(Rect rect, unsigned int maxSize)
 
 void wxFieldUpdate(wxField* field, vec2 mouse, bool pressed)
 {
-    bool hover = rect_point_overlap(mouse, field->rect);
+    bool hover = rect_point_overlap(field->rect, mouse);
     if (field->state == WIDGET_SELECTED) {
         if ((!hover && pressed) || glee_key_pressed(GLFW_KEY_ENTER)) {
             field->state = WIDGET_UNSELECTED;

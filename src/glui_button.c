@@ -13,7 +13,7 @@ wxButton wxButtonCreate(const char* text, Rect rect)
 
 void wxButtonUpdate(wxButton* w, vec2 mouse, bool pressed)
 {
-    w->state = rect_point_overlap(mouse, w->rect);
+    w->state = rect_point_overlap(w->rect, mouse);
     if (w->state && pressed) w->state = WIDGET_SELECTED;
 }
 

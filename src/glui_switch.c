@@ -13,7 +13,7 @@ void wxSwitchUpdate(wxSwitch* s, vec2 mouse, bool pressed)
 {
     texture_t t = tSwitch[s->activated];
     Rect r = {s->position.x, s->position.y, (float)t.width * s->scale, (float)t.height * s->scale};
-    bool hover = rect_point_overlap(mouse, r);
+    bool hover = rect_point_overlap(r, mouse);
     if (hover && pressed) s->activated = !s->activated;
 }
 

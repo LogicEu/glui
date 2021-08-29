@@ -22,7 +22,7 @@ void wxSliderUpdate(wxSlider* s, vec2 mouse, bool pressed)
     if (!s->rot) r = rect_new(s->position.x - h * 0.5f + h * s->lerp, s->position.y, (float)t.width * s->scale, (float)t.height * s->scale);
     else r = rect_new(s->position.x, s->position.y - h * 0.5f + h * s->lerp, (float)t.width * s->scale, (float)t.height * s->scale);
     
-    bool hover = rect_point_overlap(mouse, r);
+    bool hover = rect_point_overlap(r, mouse);
     if (!pressed) s->selected = false;
     else if (hover) s->selected = true;
     
