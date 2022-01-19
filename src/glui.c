@@ -23,7 +23,7 @@ static void vertexBuffersInit(unsigned int* VAO, unsigned int* VBO, unsigned int
     glBindVertexArray(0);
 }
 
-static void universeCoordsSet(unsigned int width, unsigned int height, unsigned int scale)
+static void gluiCoordsSet(unsigned int width, unsigned int height, unsigned int scale)
 {
     scrWidth = width;
     scrHeight = height;
@@ -41,7 +41,7 @@ static void universeCoordsSet(unsigned int width, unsigned int height, unsigned 
     glUniformMatrix4fv(glGetUniformLocation(textureShader, "projection"), 1, GL_FALSE, &m.data[0][0]);
 }
 
-void universeInit(unsigned int width, unsigned int height, unsigned int scale)
+void gluiInit(unsigned int width, unsigned int height, unsigned int scale)
 {   
     if (defaultTheme) {
         Theme t = {{
@@ -65,14 +65,14 @@ void universeInit(unsigned int width, unsigned int height, unsigned int scale)
     widgetShader = glee_shader_load("assets/shaders/widget.vs", "assets/shaders/widget.fs");
     textureShader = glee_shader_load("assets/shaders/textures.vs", "assets/shaders/textures.fs");
 
-    universeCoordsSet(width, height, scale);
+    gluiCoordsSet(width, height, scale);
 
     vertexBuffersInit(&fontVAO, &fontVBO, 10, 4);
     vertexBuffersInit(&textureVAO, &textureVBO, 10, 4);
     vertexBuffersInit(&widgetVAO, &widgetVBO, 11, 2);
 }
 
-void universeThemeSet(vec4 primary[3], vec4 secondary[3], vec4 terciary[3])
+void gluiThemeSet(vec4 primary[3], vec4 secondary[3], vec4 terciary[3])
 {
     memcpy(globalTheme.primary, primary, sizeof(vec4) * 3);
     memcpy(globalTheme.secondary, secondary, sizeof(vec4) * 3);
@@ -80,38 +80,38 @@ void universeThemeSet(vec4 primary[3], vec4 secondary[3], vec4 terciary[3])
     defaultTheme = false;
 }
 
-void universeSwitchSet(texture_t tActive, texture_t tInactive)
+void gluiSwitchSet(texture_t tActive, texture_t tInactive)
 {
     tSwitch[0] = tInactive;
     tSwitch[1] = tActive;
     initSwitch = true;
 }
 
-void universeSliderSet(texture_t slider, texture_t marker)
+void gluiSliderSet(texture_t slider, texture_t marker)
 {
     tSlider[0] = slider;
     tSlider[1] = marker;
     initSlider = true;
 }
 
-void universeFrameSet(texture_t frame)
+void gluiFrameSet(texture_t frame)
 {
     tFrame = frame;
     initFrame = true;
 }
 
-void universeFontSet(Font* font)
+void gluiFontSet(Font* font)
 {
     globalFont = font;
     initFont = true;
 }
 
-Theme* universeThemeGet()
+Theme* gluiThemeGet()
 {
     return &globalTheme;
 }
 
-Font* universeFontGet()
+Font* gluiFontGet()
 {
     return globalFont;
 }

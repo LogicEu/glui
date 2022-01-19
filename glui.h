@@ -123,15 +123,15 @@ extern unsigned int widgetShader, fontShader, textureShader;
 extern unsigned int fontVAO, fontVBO, widgetVAO, widgetVBO, textureVAO, textureVBO;
 extern unsigned int scrWidth, scrHeight, scrScale, scrXscale, scrYscale;
 
-void universeInit(unsigned int width, unsigned int height, unsigned int scale);
-void universeThemeSet(vec4 primary[3], vec4 secondary[3], vec4 terciary[3]);
-void universeSwitchSet(texture_t tActive, texture_t tInactive);
-void universeFrameSet(texture_t frame);
-void universeSliderSet(texture_t slider, texture_t marker);
-void universeFontSet(Font* font);
+void gluiInit(unsigned int width, unsigned int height, unsigned int scale);
+void gluiThemeSet(vec4 primary[3], vec4 secondary[3], vec4 terciary[3]);
+void gluiSwitchSet(texture_t tActive, texture_t tInactive);
+void gluiFrameSet(texture_t frame);
+void gluiSliderSet(texture_t slider, texture_t marker);
+void gluiFontSet(Font* font);
 
-Theme* universeThemeGet();
-Font* universeFontGet();
+Theme* gluiThemeGet();
+Font* gluiFontGet();
 
 size_t wxWidgetSize(wxEnum e);
 void wxDirectorySave(const char* path, wxDirectory* dir);
